@@ -1,0 +1,9 @@
+{
+    "keyboard_name": "My Custom Keyboard",
+    "maintainer": "John Wallace",
+    "usb": {
+        "vid": "0x4283",
+        "pid": "0x0060",
+        "device_version": "1.0.0"
+    }
+}
