@@ -18,6 +18,4 @@ AUDIO_ENABLE = no           # Audio output
 
 LTO_ENABLE = yes            # Link-time opt
 
-DEFAULT_FOLDER = 0custom/base
-
 F_CPU = 8000000

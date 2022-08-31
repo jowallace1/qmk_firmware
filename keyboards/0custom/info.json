@@ -1,8 +1,13 @@
 {
-    "manufacturer": "ven0mtr0n",
+    "keyboard_name": "Custom",
+    "indicators": {
+        "caps_lock": "B6"
+    },
+    "manufacturer": "John Wallace",
     "url": "",
-    "maintainer": "vinamarora8",
+    "maintainer": "John Wallace",
     "usb": {
+        "pid": "0x0060",
         "vid": "0x7654",
         "device_version": "0.0.1"
     },
