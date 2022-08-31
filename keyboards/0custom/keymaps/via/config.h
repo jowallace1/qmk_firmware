@@ -1,4 +1,4 @@
-/* Copyright 2020 Vinam Arora <vinam@posteo.de>
+/* Copyright 2021 Vinam Arora <vinam@posteo.de>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,4 +14,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "0custom.h"
+#pragma once
+
+#define DYNAMIC_KEYMAP_LAYER_COUNT 7
+/* This is 4 by default. ProMicro's memory doesn't seem to be able to
+ * support more than 7 dynamic keymap layers
+ */
