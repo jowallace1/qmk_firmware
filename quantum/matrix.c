@@ -318,6 +318,7 @@ __attribute__((weak)) bool transport_master_if_connected(matrix_row_t master_mat
 #endif
 
 uint8_t matrix_scan(void) {
+    xprintf("default matrix scanning...\n");
     matrix_row_t curr_matrix[MATRIX_ROWS] = {0};
 
 #if defined(DIRECT_PINS) || (DIODE_DIRECTION == COL2ROW)

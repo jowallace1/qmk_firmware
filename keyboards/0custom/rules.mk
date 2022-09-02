@@ -7,6 +7,7 @@ BOOTLOADER = caterina
 # Build Options
 #   change yes to no to disable
 #
+CUSTOM_MATRIX = lite
 BOOTMAGIC_ENABLE = no       # Enable Bootmagic Lite
 EXTRAKEY_ENABLE = yes       # Audio control and System control
 CONSOLE_ENABLE = yes        # Console for debug
@@ -19,3 +20,5 @@ AUDIO_ENABLE = no           # Audio output
 LTO_ENABLE = yes            # Link-time opt
 
 F_CPU = 8000000
+
+SRC += matrix.c
