@@ -115,7 +115,7 @@ void matrix_init_custom(void) {
 
 bool matrix_scan_custom(matrix_row_t current_matrix[]) {
     bool matrix_has_changed = false;
-    xprintf("custom matrix scanning...\n");
+    // xprintf("custom matrix scanning...\n");
 
     for (uint8_t current_row = 0; current_row < MATRIX_ROWS; current_row++) {
         matrix_row_t last_row_val = current_matrix[current_row];
@@ -125,9 +125,9 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
             bool pinVal = 0;
 
             if (current_col < MUX_PINS) {
-                pinVal = readMux(current_col);
+                readMux(current_col);
             } else {
-                pinVal = readPin(col_pins[current_col - MUX_PINS]);
+                pinVal = readPin(col_pins[current_col]);
             }
 
             current_matrix[current_row] |= pinVal ? 0 : MATRIX_ROW_SHIFTER << current_col;
