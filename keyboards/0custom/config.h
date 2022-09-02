@@ -21,13 +21,15 @@
 /* key matrix size */
 // Rows are doubled-up
 #define MATRIX_ROWS 5
-#define MATRIX_COLS 12
-#define MATRIX_ROW_PINS \
-    { B1, F7, F6, F5, F4 }
-#define MATRIX_COL_PINS \
-    { D3, D2, D1, D0, D4, C6, D7, E6, B4, B5, B3, B2 }
 
-#define MUX_A F7
+#define MATRIX_COLS 14
+#define MATRIX_ROW_PINS \
+    { B5, D7, C6, D0, D1 }
+#define MATRIX_COL_PINS \
+    { D2, D3, B6, B7, D6, C7, F7, F7, F7, F7, F7, F7, F7, F7 }
+
+#define MUX_PINS 8
+#define MUX_A F6
 #define MUX_B F5
 #define MUX_C F4
 #define MUX_OUT F7

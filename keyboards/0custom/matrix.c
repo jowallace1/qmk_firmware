@@ -124,10 +124,10 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
         for (uint8_t current_col = 0; current_col < MATRIX_COLS; current_col++) {
             bool pinVal = 0;
 
-            if (current_col < 8) {
+            if (current_col < MUX_PINS) {
                 pinVal = readMux(current_col);
             } else {
-                pinVal = readPin(col_pins[current_col]);
+                pinVal = readPin(col_pins[current_col - MUX_PINS]);
             }
 
             current_matrix[current_row] |= pinVal ? 0 : MATRIX_ROW_SHIFTER << current_col;
