@@ -35,7 +35,7 @@ static void set_mux(uint8_t col) {
     switch (col) {
         case 0:
             writePin(MUX_A, 0);
-            writePin(MUX_B, 0);
+            writePin(MUX_B, 1);
             writePin(MUX_C, 0);
             break;
         case 1:
@@ -45,7 +45,7 @@ static void set_mux(uint8_t col) {
             break;
         case 2:
             writePin(MUX_A, 0);
-            writePin(MUX_B, 1);
+            writePin(MUX_B, 0);
             writePin(MUX_C, 0);
             break;
         case 3:
@@ -60,20 +60,24 @@ static void set_mux(uint8_t col) {
             break;
         case 5:
             writePin(MUX_A, 1);
-            writePin(MUX_B, 0);
-            writePin(MUX_C, 1);
+            writePin(MUX_B, 1);
+            writePin(MUX_C, 0);
             break;
         case 6:
             writePin(MUX_A, 1);
             writePin(MUX_B, 1);
-            writePin(MUX_C, 0);
+            writePin(MUX_C, 1);
             break;
         case 7:
             writePin(MUX_A, 1);
-            writePin(MUX_B, 1);
+            writePin(MUX_B, 0);
             writePin(MUX_C, 1);
             break;
     }
+
+    setPinInputHigh(MUX_A);
+    setPinInputHigh(MUX_B);
+    setPinInputHigh(MUX_C);
 }
 
 static void select_row(uint8_t row) {
@@ -118,14 +122,16 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
     // xprintf("custom matrix scanning...\n");
 
     for (uint8_t current_row = 0; current_row < MATRIX_ROWS; current_row++) {
-        matrix_row_t last_row_val = current_matrix[current_row];
-        select_row(current_row);
+        matrix_row_t last_row_val = current_matrix[current_row];    // store last row
+        current_matrix[current_row] = 0;                            // start with clear row
+        deselect_rows();                                            // deselect all rows
+        select_row(current_row);                                    // only select current row
 
         for (uint8_t current_col = 0; current_col < MATRIX_COLS; current_col++) {
             bool pinVal = 0;
 
             if (current_col < MUX_PINS) {
-                readMux(current_col);
+                pinVal = readMux(current_col);
             } else {
                 pinVal = readPin(col_pins[current_col]);
             }
@@ -134,8 +140,6 @@ bool matrix_scan_custom(matrix_row_t current_matrix[]) {
         }
 
         matrix_has_changed |= last_row_val != current_matrix[current_row];
-
-        deselect_rows();
     }
 
     return matrix_has_changed;

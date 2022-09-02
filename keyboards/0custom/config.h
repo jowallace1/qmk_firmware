@@ -24,9 +24,9 @@
 
 #define MATRIX_COLS 14
 #define MATRIX_ROW_PINS \
-    { B5, D7, C6, D0, D1 }
+    { D1, D0, C6, D7, B5 }
 #define MATRIX_COL_PINS \
-    { D2, D3, B6, B7, D6, C7, F7, F7, F7, F7, F7, F7, F7, F7 }
+    { F7, F7, F7, F7, F7, F7, F7, F7, C7, D2, D3, D6, B7, B6 }
 
 #define MUX_PINS 8
 #define MUX_A F6
